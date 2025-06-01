@@ -37,7 +37,7 @@ function Navbar() {
       setSubjectsLoading(true);
       setSubjectsError(null);
 
-      fetch(`http://localhost:5000/api/subjects?year=${year}&semester=${semester}&branch=${branch}`)
+      fetch(`https://backend-hrcf.onrender.com/api/subjects?year=${year}&semester=${semester}&branch=${branch}`)
         .then((res) => res.json())
         .then((data) => {
           setSubjects(Array.isArray(data.subjects) ? data.subjects : []);
@@ -85,7 +85,7 @@ function Navbar() {
       setResourcesLoading(true);
       setResourcesError(null);
 
-      fetch(`http://localhost:5000/api/resources?subject=${encodeURIComponent(subject)}`)
+      fetch(`https://backend-hrcf.onrender.com/api/resources?subject=${encodeURIComponent(subject)}`)
         .then((res) => res.json())
         .then((data) => {
           setResources({

@@ -21,7 +21,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/signup", {
+      const res = await fetch("https://backend-hrcf.onrender.com/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -31,10 +31,10 @@ function Signup() {
 
       if (res.ok) {
         alert("Signup successful!");
-        // Save full user info + token in localStorage
+        
         localStorage.setItem("user", JSON.stringify({ ...data.user, token: data.token }));
 
-        navigate("/"); // Redirect to dashboard or home page
+        navigate("/"); 
       } else {
         alert(data.message || "Signup failed");
       }
